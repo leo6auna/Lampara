@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Css con Boostrap-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    <script src="/mijavascript.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="text">
+            Encienda la lámpara
+        </h1>
+        <div>
+            <div class="bulb">
+                <div class="bulb-inner">
+                    <img src="img/bulbimages/bulboff.png" id="bulb"
+                    onmouseover="lampara.toggleBulb();"
+                    onmouseout="lampara.toggleBulb();">
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg btn-block mt-3" type="button" onclick="lampara.toggleBulb();" onclick="cambiaTexto()">Encender y apagar la lámpara</button>
+            <button class="btn btn-danger btn-lg btn-block mt-3" type="button">Encender la lámpara con Event Listener</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"  crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+    <script>
+        //codear en javacript en modo embebido...
+        // Declaracion Tradicional
+        // function toggleBulb() {
+        //     alert("Presioné el botón....");
+        // }
+        var bulbcontainer = document.getElementsByClassName("bulb");
+        var bulbImage = document.getElementById("bulb");
+        var texto = document.getElementById("text");
+        
+
+
+        //texto = document.getElementById("text");
+        //texto.innerHTML = "texo original";
+        
+        //Declaracion como arrow function...
+        //toggleBulb = () => {
+          //  alert("declaracion como objeto.")
+        //}
+        //Declaracion de function dentro de un objeto...
+        var lampara = {
+            toggleBulb: () => {
+                //alert("arrow function desde objeto lampara...");
+                if (bulbImage.src.match("bulbon") != null) 
+                    {
+                    bulbImage.src = "img/bulbimages/bulboff.png";
+                    bulbContainer[0].style.backgroundImage = "url('./bulbimages/bulbbackground.png')";  
+                    
+                    } 
+                else {
+                    
+
+                    bulbImage.src = "img/bulbimages/bulbon.png";
+                    bulbContainer[0].style.backgroundImage = "url('./bulbimages/bulbbackground2.png')";   
+                        }
+                            }
+                        }
+    </script>
+
+</body>
+</html>
